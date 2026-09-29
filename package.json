@@ -1,0 +1,39 @@
+{
+  "name": "stream-command-bridge",
+  "version": "0.1.0",
+  "description": "Turn Twitch chat commands into neutral events for apps, overlays, and automations.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test test/**/*.test.ts",
+    "example": "tsx examples/listener.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "prepack": "npm run build"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["twitch", "chat", "commands", "eventsub", "streaming", "automation", "websocket"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b3rtopacks/stream-command-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/b3rtopacks/stream-command-bridge/issues"
+  },
+  "homepage": "https://github.com/b3rtopacks/stream-command-bridge#readme",
+  "author": "b3rtopacks",
+  "license": "MIT",
+  "sideEffects": false,
+  "publishConfig": { "access": "public" },
+  "dependencies": { "dotenv": "^17.2.3", "ws": "^8.18.3" },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
